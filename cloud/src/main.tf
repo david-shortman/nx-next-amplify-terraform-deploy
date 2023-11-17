@@ -30,6 +30,10 @@ resource "aws_amplify_app" "test_app" {
   repository = "https://github.com/david-shortman/nx-next-amplify-terraform-deploy"
   access_token = var.GITHUB_TOKEN
 
+  environment_variables = {
+    AMPLIFY_MONOREPO_APP_ROOT = "test-app"
+  }
+
   build_spec = <<-EOT
     version: 1
     applications:
