@@ -1,6 +1,9 @@
+variable "github_token" {}
+
 resource "aws_amplify_app" "test_app" {
   name       = "test_app"
   repository = "https://github.com/david-shortman/nx-next-amplify-terraform-deploy"
+  access_token = var.github_token
 
   build_spec = <<-EOT
     version: 0.1
