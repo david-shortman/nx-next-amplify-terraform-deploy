@@ -1,15 +1,20 @@
 name: Deploy Amplify App with Terraform
 
+# testing deploy
 on:
   push:
     branches:
-      - test-branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: hashicorp/setup-terraform@v2
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -18,12 +23,13 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: ./cloud/src/main.tf
+        working-directory: ./cloud/src
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
-        working-directory: ./cloud/src/main.tf
+        working-directory: ./cloud/src
         env:
+          TF_VAR_github_token: ${{ secrets.API_GITHUB_TOKEN }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
