@@ -34,21 +34,21 @@ resource "aws_amplify_app" "test_app" {
     version: 1
     applications:
       - appRoot: apps/test-app
-      frontend:
-        phases:
-          preBuild:
-            commands:
-              - npm ci
-          build:
-            commands:
-              - nx run test-app:build:production
-        artifacts:
-          baseDirectory: dist/test-app
-          files:
-            - '**/*'
-        cache:
-          paths:
-            - node_modules/**/*
+        frontend:
+          phases:
+            preBuild:
+              commands:
+                - npm ci
+            build:
+              commands:
+                - nx run test-app:build:production
+          artifacts:
+            baseDirectory: dist/test-app
+            files:
+              - '**/*'
+          cache:
+            paths:
+              - node_modules/**/*
   EOT
 
   # The default rewrites and redirects added by the Amplify Console.
