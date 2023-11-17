@@ -19,11 +19,11 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: ./cloud/src/main.tf
+        working-directory: ./cloud/src
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
-        working-directory: ./cloud/src/main.tf
+        working-directory: ./cloud/src
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
