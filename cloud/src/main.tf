@@ -45,7 +45,7 @@ resource "aws_amplify_app" "test_app" {
                 - npm ci
             build:
               commands:
-                - nx run test-app:build:production
+                - npx nx run test-app:build:production
           artifacts:
             baseDirectory: dist/test-app
             files:
