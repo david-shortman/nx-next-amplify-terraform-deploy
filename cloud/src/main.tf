@@ -1,6 +1,6 @@
 resource "aws_amplify_app" "test_app" {
   name       = "test_app"
-  repository = "https://github.com/example/app"
+  repository = "https://github.com/david-shortman/nx-next-amplify-terraform-deploy"
 
   build_spec = <<-EOT
     version: 0.1
