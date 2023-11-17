@@ -33,7 +33,7 @@ resource "aws_amplify_app" "test_app" {
   build_spec = <<-EOT
     version: 1
     applications:
-      - appRoot: apps/test-app
+      - appRoot: test-app
         frontend:
           phases:
             preBuild:
