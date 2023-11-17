@@ -6,22 +6,24 @@ resource "aws_amplify_app" "test_app" {
   access_token = var.github_token
 
   build_spec = <<-EOT
-    version: 0.1
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - npm ci
-        build:
-          commands:
-            - nx run test-app:build:production
-      artifacts:
-        baseDirectory: dist/test-app
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - node_modules/**/*
+    version: 1
+    applications:
+      - appRoot: apps/test-app
+      frontend:
+        phases:
+          preBuild:
+            commands:
+              - npm ci
+          build:
+            commands:
+              - nx run test-app:build:production
+        artifacts:
+          baseDirectory: dist/test-app
+          files:
+            - '**/*'
+        cache:
+          paths:
+            - node_modules/**/*
   EOT
 
   # The default rewrites and redirects added by the Amplify Console.
