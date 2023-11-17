@@ -32,8 +32,11 @@ resource "aws_amplify_app" "test_app" {
     status = "404"
     target = "/index.html"
   }
+}
 
-  environment_variables = {
-    ENV = "test"
-  }
+resource "aws_amplify_branch" "main" {
+  app_id      = aws_amplify_app.test_app.id
+  branch_name = "main"
+
+  stage     = "PRODUCTION"
 }
