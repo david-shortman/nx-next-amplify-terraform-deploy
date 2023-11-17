@@ -55,11 +55,11 @@ resource "aws_amplify_app" "test_app" {
   EOT
 
   # The default rewrites and redirects added by the Amplify Console.
-  custom_rule {
-    source = "/<*>"
-    status = "404"
-    target = "/index.html"
-  }
+#  custom_rule {
+#    source = "/<*>"
+#    status = "404"
+#    target = "/"
+#  }
 }
 
 resource "aws_amplify_branch" "main" {
