@@ -1,5 +1,15 @@
 variable "github_token" {}
 
+terraform {
+  cloud {
+    organization = "example-org-1c9e17"
+
+    workspaces {
+      name = "test-app"
+    }
+  }
+}
+
 resource "aws_amplify_app" "test_app" {
   name       = "test_app"
   repository = "https://github.com/david-shortman/nx-next-amplify-terraform-deploy"
