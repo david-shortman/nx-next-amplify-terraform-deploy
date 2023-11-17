@@ -46,7 +46,7 @@ resource "aws_amplify_app" "test_app" {
                 - npm ci
                 - npx nx run test-app:build:production
           artifacts:
-            baseDirectory: ../dist/test-app/.next
+            baseDirectory: ../dist/test-app
             files:
               - '**/*'
           cache:
