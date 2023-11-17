@@ -11,12 +11,12 @@ resource "aws_amplify_app" "test_app" {
       phases:
         preBuild:
           commands:
-            - yarn install
+            - npm ci
         build:
           commands:
-            - yarn run build
+            - nx run test-app:build:production
       artifacts:
-        baseDirectory: build
+        baseDirectory: dist/test-app
         files:
           - '**/*'
       cache:
