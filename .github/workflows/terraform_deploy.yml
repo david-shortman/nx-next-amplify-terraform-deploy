@@ -4,7 +4,7 @@ name: Deploy Amplify App with Terraform
 on:
   push:
     branches:
-      - test-branch
+      - main
 
 jobs:
   deploy:
