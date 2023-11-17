@@ -42,7 +42,7 @@ resource "aws_amplify_app" "test_app" {
           phases:
             preBuild:
               commands:
-                - npm ci
+                - npm ci && echo "hello"
             build:
               commands:
                 - npx nx run test-app:build:production

@@ -2,7 +2,11 @@
   "name": "@org/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
   "private": true,
   "devDependencies": {
     "@nx-extend/terraform": "^4.0.0",
