@@ -66,6 +66,13 @@ resource "aws_amplify_app" "test_app" {
 resource "aws_amplify_branch" "main" {
   app_id      = aws_amplify_app.test_app.id
   branch_name = "main"
+  enable_auto_build = false
 
   stage     = "PRODUCTION"
+}
+
+resource "aws_amplify_webhook" "main" {
+  app_id      = aws_amplify_app.test_app.id
+  branch_name = aws_amplify_branch.main.branch_name
+  description = "triggermain"
 }
