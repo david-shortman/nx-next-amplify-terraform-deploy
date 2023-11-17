@@ -37,7 +37,7 @@ resource "aws_amplify_app" "test_app" {
   build_spec = <<-EOT
     version: 1
     applications:
-      - appRoot: test-app
+      - appRoot: test-app/.next
         frontend:
           phases:
             preBuild:
@@ -45,6 +45,8 @@ resource "aws_amplify_app" "test_app" {
                 - npm ci && echo "hello"
             build:
               commands:
+                - pwd
+                - ls -la
                 - npx nx run test-app:build:production
           artifacts:
             baseDirectory: dist/test-app
