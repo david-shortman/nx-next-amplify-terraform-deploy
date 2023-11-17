@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - test
 
 jobs:
   deploy:
@@ -29,7 +30,6 @@ jobs:
         run: terraform apply -auto-approve
         working-directory: ./cloud/src
         env:
-          TF_VAR_github_token: ${{ secrets.API_GITHUB_TOKEN }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'us-east-1'
+          TF_VAR_GITHUB_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}
+          TF_VAR_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          TF_VAR_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
