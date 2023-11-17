@@ -54,6 +54,8 @@ resource "aws_amplify_app" "test_app" {
               - node_modules/**/*
   EOT
 
+  platform = "WEB_COMPUTE"
+
   # The default rewrites and redirects added by the Amplify Console.
 #  custom_rule {
 #    source = "/<*>"
