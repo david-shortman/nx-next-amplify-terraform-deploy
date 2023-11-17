@@ -55,6 +55,7 @@ resource "aws_amplify_app" "test_app" {
   EOT
 
   platform = "WEB_COMPUTE"
+  framework = "Next.js - SSR"
 
   # The default rewrites and redirects added by the Amplify Console.
 #  custom_rule {
