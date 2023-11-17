@@ -40,16 +40,13 @@ resource "aws_amplify_app" "test_app" {
       - appRoot: test-app
         frontend:
           phases:
-            preBuild:
-              commands:
-                - npm ci && echo "hello"
             build:
               commands:
-                - pwd
-                - ls -la
+                - cd ../
+                - npm ci
                 - npx nx run test-app:build:production
           artifacts:
-            baseDirectory: dist/test-app
+            baseDirectory: ../dist/test-app/.next
             files:
               - '**/*'
           cache:
